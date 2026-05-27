@@ -438,7 +438,7 @@ export default function PortfolioWebsite() {
 
       {/* Floating Image Follower for Case Studies */}
       <AnimatePresence>
-        {hoveredProject && (
+        {hoveredProject && !selectedProject && (
           <motion.div
             initial={{ scale: 0.7, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -451,7 +451,7 @@ export default function PortfolioWebsite() {
               pointerEvents: 'none',
               zIndex: 999
             }}
-            className="w-[280px] h-[190px] rounded-none overflow-hidden border border-black/10 bg-[#eaeaea] shadow-2xl"
+            className="hidden lg:block w-[280px] h-[190px] rounded-none overflow-hidden border border-black/10 bg-[#eaeaea] shadow-2xl"
           >
             <img 
               src={hoveredProject.image} 
