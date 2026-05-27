@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-anton: 'Anton', sans-serif;
+}
+
+@utility font-anton {
+  font-family: 'Anton', sans-serif;
 }
 
 @keyframes scroll {
@@ -14,14 +20,40 @@
 }
 
 @utility animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll 12s linear infinite;
 }
 
-/* Custom follower cursor styling */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slow-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@utility animate-spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
+
+@utility animate-spin-slow-reverse {
+  animation: spin-slow-reverse 45s linear infinite;
+}
+
+/* Custom follower cursor styling in grey */
 .custom-cursor {
   width: 20px;
   height: 20px;
-  border: 2px solid #39FF14;
+  border: 2px solid #4b5563;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -33,7 +65,7 @@
 .custom-cursor-dot {
   width: 6px;
   height: 6px;
-  background-color: #39FF14;
+  background-color: #4b5563;
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
@@ -44,8 +76,8 @@
 .custom-cursor-active {
   width: 40px;
   height: 40px;
-  background-color: rgba(57, 255, 20, 0.1);
-  border-color: #39FF14;
+  background-color: rgba(75, 85, 99, 0.1);
+  border-color: #4b5563;
 }
 
 @keyframes scroll-right {
@@ -61,10 +93,11 @@
   animation: scroll-right 25s linear infinite;
 }
 
+/* Diamond grid using grey tint */
 @utility diamond-grid {
   background-image: 
-    linear-gradient(45deg, rgba(57, 255, 20, 0.02) 1px, transparent 1px),
-    linear-gradient(-45deg, rgba(57, 255, 20, 0.02) 1px, transparent 1px);
+    linear-gradient(45deg, rgba(75, 85, 99, 0.02) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(75, 85, 99, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
   background-position: center;
 }
@@ -78,7 +111,7 @@
 @utility glow-btn {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   &:hover {
-    box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+    box-shadow: 0 0 20px rgba(75, 85, 99, 0.4);
     transform: translateY(-2px);
   }
 }
