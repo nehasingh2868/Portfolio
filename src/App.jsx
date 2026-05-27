@@ -495,8 +495,8 @@ export default function PortfolioWebsite() {
           {/* Right Side: HIRE ME Button (Always visible, triggers download) */}
           <div>
             <a
-              href="/resume.pdf"
-              download="Neha_Singh_Resume.pdf"
+              href="/NehaSinghupdatedresume.pdf"
+              download="NehaSinghupdatedresume.pdf"
               className="px-4 py-2 rounded-full border border-black text-black hover:bg-black hover:text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 font-sans cursor-pointer bg-transparent text-center inline-block"
             >
               Hire Me
@@ -535,8 +535,8 @@ export default function PortfolioWebsite() {
                   Contact
                 </a>
                 <a
-                  href="/resume.pdf"
-                  download="Neha_Singh_Resume.pdf"
+                  href="/NehaSinghupdatedresume.pdf"
+                  download="NehaSinghupdatedresume.pdf"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="mt-2 px-5 py-3 rounded-full border border-black text-black hover:bg-black hover:text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 font-sans text-center block"
                 >
@@ -898,8 +898,8 @@ export default function PortfolioWebsite() {
               
               <div className="flex flex-wrap items-center gap-6">
                 <a 
-                  href="/resume.pdf" 
-                  download="Neha_Singh_Resume.pdf"
+                  href="/NehaSinghupdatedresume.pdf" 
+                  download="NehaSinghupdatedresume.pdf"
                   className="hover:text-black transition-colors uppercase font-mono text-[10px] font-bold"
                 >
                   Hire Me
