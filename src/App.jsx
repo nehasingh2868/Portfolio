@@ -50,7 +50,7 @@ const caseStudiesData = {
     {
       brand: '2.39× to 7.98× ROAS — in Three Weeks',
       category: 'clothing',
-      result: 'Scaled Meta ROAS from 2.39× to 7.98× in three weeks for an Indian Ethnic D2C Brand, achieving ₹13.69L+ in monthly revenue and drastic CAC reduction.',
+      result: 'Scaled Indian Ethnic D2C brand with drastic CAC reduction in three weeks',
       insights: 'The client is a leading Indian Ethnic D2C Brand selling handcrafted sarees, farshi sets, bandhani kurta sets, and shrug sets online. Despite strong creative assets, a growing catalogue, and a loyal customer base, the brand had been operating with steadily declining Meta ROAS — dropping from 4.38× in November 2025 to just 2.39× by April 2026. The objective was clear: improve profitability without pulling back significantly on scale. The problem wasn\'t creative fatigue — it was structural inefficiency in both ad delivery and order fulfilment quality. Our strategy: 1) Structural optimization of ad delivery to eliminate waste. 2) Fixed order fulfillment quality to control fake orders. 3) Horizontal scaling and bestseller optimization.',
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop',
       metrics: ['7.98x ROAS', '₹13.69L Revenue', 'CAC: ₹1464 → ₹385'],
@@ -1147,12 +1147,12 @@ export default function PortfolioWebsite() {
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
-                className="w-full overflow-hidden py-8 flex items-center justify-center min-h-[420px] md:min-h-[480px]"
+                className="w-full overflow-hidden py-8 flex items-center justify-center min-h-[460px] md:min-h-[480px]"
                 style={{ perspective: "1200px" }}
               >
                 <div
                   ref={cardsContainerRef}
-                  className="relative w-full max-w-[620px] h-[380px] md:h-[440px] flex items-center justify-center"
+                  className="relative w-full max-w-[620px] h-[410px] md:h-[440px] flex items-center justify-center"
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   {caseStudiesData[activeCategory].map((study, index) => {
@@ -1187,28 +1187,28 @@ export default function PortfolioWebsite() {
                         ref={(el) => (cardsRef.current[index] = el)}
                         onClick={handleCardClick}
                         style={{ transformStyle: "preserve-3d" }}
-                        className="absolute w-[76vw] max-w-[620px] h-[330px] md:h-[440px] card-wrapper py-6 cursor-pointer"
+                        className="absolute w-[76vw] max-w-[620px] h-[410px] md:h-[440px] card-wrapper py-6 cursor-pointer"
                       >
                         {/* The main card container styled according to cardThemes */}
                         <div
-                          className={`w-full h-full rounded-2xl relative px-6 md:px-12 py-10 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6 select-none transition-all duration-300 ${theme.bgClass} ${isCenter
+                          className={`w-full h-full rounded-2xl relative px-5 py-8 md:px-12 md:py-16 flex flex-col md:flex-row items-center justify-between gap-6 select-none transition-all duration-300 ${theme.bgClass} ${isCenter
                               ? 'shadow-[0_30px_70px_-15px_rgba(0,0,0,0.4)] border-black/20'
                               : 'shadow-sm border-transparent'
                             }`}
                           style={{ transformStyle: "preserve-3d" }}
                         >
                           {/* TOP-LEFT CORNER BADGE: Black Square */}
-                          <div className="absolute -top-6 -left-6 w-18 h-18 md:w-22 md:h-22 bg-[#1a1a1a] text-white flex flex-col items-center justify-center rounded-2xl z-20 shadow-lg font-sans card-data-item [transform:translateZ(40px)]">
-                            <span className="text-2xl md:text-3xl font-black tracking-tight">{theme.number}</span>
+                          <div className="absolute -top-4 -left-4 w-12 h-12 md:-top-6 md:-left-6 md:w-22 md:h-22 bg-[#1a1a1a] text-white flex flex-col items-center justify-center rounded-2xl z-20 shadow-lg font-sans card-data-item [transform:translateZ(40px)]">
+                            <span className="text-lg md:text-3xl font-black tracking-tight">{theme.number}</span>
                           </div>
 
                           {/* TOP-RIGHT CORNER BADGE: White Pill with Year */}
-                          <div className="absolute -top-6 -right-6 px-6 py-2.5 md:px-8 md:py-3.5 bg-white text-black border-2 border-black rounded-full text-xs md:text-sm font-bold font-mono z-20 shadow-md card-data-item [transform:translateZ(40px)]">
+                          <div className="absolute -top-4 -right-4 px-4 py-1.5 md:-top-6 md:-right-6 md:px-8 md:py-3.5 bg-white text-black border-2 border-black rounded-full text-[10px] md:text-sm font-bold font-mono z-20 shadow-md card-data-item [transform:translateZ(40px)]">
                             {theme.year}
                           </div>
 
                           {/* BOTTOM-LEFT CORNER BADGE: White Pill with Metric Count-up */}
-                          <div className="absolute -bottom-6 -left-6 px-6 py-2.5 md:px-8 md:py-3.5 bg-white text-black border-2 border-black rounded-full text-xs md:text-sm font-bold font-mono z-20 shadow-md flex items-center gap-2 card-data-item [transform:translateZ(40px)]">
+                          <div className="absolute -bottom-4 -left-4 px-4 py-1.5 md:-bottom-6 md:-left-6 md:px-8 md:py-3.5 bg-white text-black border-2 border-black rounded-full text-[10px] md:text-sm font-bold font-mono z-20 shadow-md flex items-center gap-2 card-data-item [transform:translateZ(40px)]">
                             <span className="text-[10px] md:text-xs font-mono tracking-wider text-black/55 uppercase">METRIC:</span>
                             <CardMetric valueStr={study.metrics[0]} isActive={activeCardIndex === index} />
                           </div>
@@ -1219,7 +1219,7 @@ export default function PortfolioWebsite() {
                               e.stopPropagation();
                               setSelectedProject(study);
                             }}
-                            className="absolute -bottom-6 -right-6 px-8 py-3.5 md:px-10 md:py-4 bg-[#c40c0c] text-white hover:bg-[#a30a0a] rounded-full text-xs md:text-sm font-bold flex items-center gap-2 z-20 shadow-lg border-none cursor-pointer transition-colors font-mono card-data-item [transform:translateZ(40px)]"
+                            className="absolute -bottom-4 -right-4 px-5 py-2 md:-bottom-6 md:-right-6 md:px-10 md:py-4 bg-[#c40c0c] text-white hover:bg-[#a30a0a] rounded-full text-[10px] md:text-sm font-bold flex items-center gap-2 z-20 shadow-lg border-none cursor-pointer transition-colors font-mono card-data-item [transform:translateZ(40px)]"
                           >
                             EXPLORE ↗
                           </button>
@@ -1228,11 +1228,11 @@ export default function PortfolioWebsite() {
                           <div className="flex-1 text-left flex flex-col justify-center gap-3 md:gap-5 z-10 [transform:translateZ(20px)]">
                             <span className="text-[9px] opacity-55 font-mono tracking-[0.25em] uppercase block card-data-item">CASE STUDY</span>
 
-                            <h3 className="text-3xl md:text-4xl font-black uppercase tracking-tighter leading-none font-mono card-data-item">
+                            <h3 className="text-xl sm:text-2xl md:text-4xl font-black uppercase tracking-tighter leading-none font-mono card-data-item">
                               {study.brand}
                             </h3>
 
-                            <p className="text-[11px] md:text-xs opacity-80 leading-relaxed font-light font-sans max-w-sm normal-case card-data-item">
+                            <p className="text-[10px] md:text-xs opacity-80 leading-relaxed font-light font-sans max-w-sm normal-case card-data-item">
                               {study.result}
                             </p>
 
@@ -1243,7 +1243,7 @@ export default function PortfolioWebsite() {
                                 return (
                                   <span
                                     key={sIdx}
-                                    className={`px-3 py-1 rounded-full text-[9px] font-bold uppercase tracking-wider flex items-center gap-1.5 font-mono ${tagColorClass}`}
+                                    className={`px-2.5 py-0.5 md:px-3 md:py-1 rounded-full text-[8px] md:text-[9px] font-bold uppercase tracking-wider flex items-center gap-1.5 font-mono ${tagColorClass}`}
                                   >
                                     <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70"></span>
                                     {srv}
@@ -1508,13 +1508,7 @@ export default function PortfolioWebsite() {
                       </div>
                     </div>
 
-                    {/* Scale Achievement Banner */}
-                    <div className="flex justify-center items-center gap-3 bg-emerald-500/10 border border-emerald-500/20 px-4 py-3 rounded-xl mb-8 font-mono">
-                      <span className="text-emerald-400 text-lg font-bold">↗</span>
-                      <span className="text-xs text-white">
-                        Performance Scale: Meta ROAS scaled from <strong className="text-amber-500">2.39x</strong> to <strong className="text-emerald-400">7.98x ROAS</strong> in just three weeks.
-                      </span>
-                    </div>
+
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
