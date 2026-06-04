@@ -667,6 +667,9 @@ export default function PortfolioWebsite() {
           z: 50
         });
 
+        // Enable clicks on the active card
+        gsap.set(card, { pointerEvents: 'auto' });
+
         // Active card: scale: 1, opacity: 1, rotates from startRotateY to 0
         gsap.fromTo(card, {
           x: 0,
@@ -686,29 +689,12 @@ export default function PortfolioWebsite() {
           ease: "power3.out",
           zIndex: 10,
           onComplete: () => {
-            // After the center card completes entering, fade in the side cards cleanly
+            // Keep other cards completely hidden and disable their pointer events
             cards.forEach((c, idx) => {
-              if (idx === (activeCardIndex + 1) % total && total > 1) {
-                gsap.to(c, {
-                  x: xOffset,
-                  y: 0,
-                  z: -100,
-                  scale: 0.85,
-                  opacity: 0.5,
-                  rotateY: 0,
-                  duration: 0.4,
-                  ease: "power2.out"
-                });
-              } else if (idx === (activeCardIndex - 1 + total) % total && total > 1) {
-                gsap.to(c, {
-                  x: -xOffset,
-                  y: 0,
-                  z: -100,
-                  scale: 0.85,
-                  opacity: 0.3,
-                  rotateY: 0,
-                  duration: 0.4,
-                  ease: "power2.out"
+              if (idx !== activeCardIndex) {
+                gsap.set(c, {
+                  opacity: 0,
+                  pointerEvents: 'none'
                 });
               }
             });
@@ -747,7 +733,8 @@ export default function PortfolioWebsite() {
           scale: 0.85,
           opacity: 0,
           rotateY: 0,
-          zIndex: 5
+          zIndex: 5,
+          pointerEvents: 'none'
         });
       } else if (isPrev) {
         // Keep the prev card hidden at start, placed on the side
@@ -758,7 +745,8 @@ export default function PortfolioWebsite() {
           scale: 0.85,
           opacity: 0,
           rotateY: 0,
-          zIndex: 5
+          zIndex: 5,
+          pointerEvents: 'none'
         });
       } else {
         // Other hidden cards
@@ -769,7 +757,8 @@ export default function PortfolioWebsite() {
           scale: 0.7,
           opacity: 0,
           rotateY: 0,
-          zIndex: 0
+          zIndex: 0,
+          pointerEvents: 'none'
         });
       }
     });
