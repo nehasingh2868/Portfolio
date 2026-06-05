@@ -53,49 +53,39 @@ const caseStudiesData = {
       result: 'Scaled Indian Ethnic D2C brand with drastic CAC reduction in three weeks',
       insights: 'The client is a leading Indian Ethnic D2C Brand selling handcrafted sarees, farshi sets, bandhani kurta sets, and shrug sets online. Despite strong creative assets, a growing catalogue, and a loyal customer base, the brand had been operating with steadily declining Meta ROAS — dropping from 4.38× in November 2025 to just 2.39× by April 2026. The objective was clear: improve profitability without pulling back significantly on scale. The problem wasn\'t creative fatigue — it was structural inefficiency in both ad delivery and order fulfilment quality. Our strategy: 1) Structural optimization of ad delivery to eliminate waste. 2) Fixed order fulfillment quality to control fake orders. 3) Horizontal scaling and bestseller optimization.',
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop',
-      metrics: ['7.98x ROAS', '₹13.69L Revenue', 'CAC: ₹1464 → ₹385'],
+      metrics: ['+198%', '₹13.69L Revenue', 'CAC: ₹1464 → ₹385'],
       services: ['Meta Ads', 'Conversion Scaling', 'Creative Testing'],
       linkedinUrl: 'https://www.linkedin.com/posts/neha-singh-_performancemarketing-metaads-d2c-share-7467136953294094336-eQZD/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADUZ78gBYJGNdB8bGrRc6CS7tidtyMqTftE',
       shopifyData: [150, 280, 400, 550, 710, 890, 1100],
       metaData: [60, 90, 130, 170, 220, 290, 360]
     },
     {
-      brand: 'Kalki Vastra',
+      brand: 'From ₹10.8L to ₹36.4L/Month in 120 Days',
       category: 'clothing',
-      result: '3.6X ROAS on Google PMax and Shopping Campaigns.',
-      insights: 'Optimized the product feed titles with high-search keywords. Retargeted high-intent cart abandoners using dynamic catalog ads on Instagram and Facebook.',
-      image: 'https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1200&auto=format&fit=crop',
-      metrics: ['3.6X ROAS', '₹25L Revenue', '45% Google Search CTR'],
-      services: ['Google Ads', 'Meta Ads', 'Landing Page CRO'],
-      shopifyData: [90, 150, 180, 260, 340, 450, 580],
-      metaData: [35, 50, 65, 90, 120, 160, 210]
+      result: 'How a Women\'s Fashion Brand unlocked growth — without sacrificing efficiency.',
+      insights: 'Over the last few months, we worked with a women\'s D2C fashion brand selling everyday essentials. The brand had stable CAC, efficient CPMs, and consistent ROAS, yet growth had plateaued. Instead of increasing budgets aggressively, we audited the entire funnel and identified hidden growth constraints such as website friction, checkout leakage, and weak retention. By implementing bestseller-led scaling, landing page CRO, AI-powered abandoned checkout recovery, Google demand capture, and higher AOV collections, we scaled monthly revenue to ₹36.4L in 120 days.',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop',
+      metrics: ['+236%', '₹36.4L Revenue', '₹1.17L/day Run Rate'],
+      services: ['Meta Ads', 'Funnel CRO', 'Retention Flows'],
+      linkedinUrl: 'https://www.linkedin.com/feed/update/urn:li:activity:7468601922850144256/',
+      shopifyData: [108, 150, 190, 240, 290, 320, 364],
+      metaData: [50, 70, 95, 120, 150, 175, 200]
     },
     {
-      brand: 'Indibelle.in',
+      brand: 'Luxury Brand: ₹7.4L Revenue (+494%)',
       category: 'clothing',
-      result: 'Lowered CPA by 38% through a systematic creative testing framework.',
-      insights: 'Tested 15 new hooks weekly to beat ad fatigue. Found winning creatives and scaled them using a horizontal scaling strategy (combining multiple high-performing lookalike audiences).',
-      image: 'https://images.unsplash.com/photo-1518310383802-640c2de311b2?q=80&w=1200&auto=format&fit=crop',
-      metrics: ['3.8% Lower CPA', '4.4X ROAS', '150% Volume Boost'],
-      services: ['Meta Ads', 'Creative Strategy', 'Funnel Optimization'],
-      shopifyData: [70, 110, 160, 230, 320, 420, 560],
-      metaData: [25, 40, 55, 80, 110, 150, 195]
-    },
-    {
-      brand: 'Luxury Clothing Brand',
-      category: 'clothing',
-      result: '6.2X ROAS generated using premium catalogs and high-end landing page CRO.',
-      insights: 'Designed conversion-focused landing pages. Used high-quality lifestyle creatives combined with targeted retargeting sequences to scale the brand value and double the AOV.',
+      result: 'Scaled a luxury D2C brand targeting high-purchasing power international audiences.',
+      insights: 'Initial campaigns focused on direct website purchases resulted in low conversion due to the high consideration nature of the product. Restructured the acquisition strategy to prioritize high-intent user engagement, enabling better qualification and conversion of premium buyers. United States, United Kingdom, Australia, Canada, and UAE were targeted to capture high-purchasing power audiences for premium ethnic wear.',
       image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop',
-      metrics: ['6.2X ROAS', '₹35L Revenue', '180% AOV Boost'],
-      services: ['Meta Ads', 'Landing Page CRO', 'Influencer Strategy'],
+      metrics: ['+494%', '₹7.49L Revenue', 'AOV: ₹45,812'],
+      services: ['Meta Ads', 'International Scale', 'Audience Funnels'],
       shopifyData: [120, 200, 320, 450, 600, 800, 1050],
       metaData: [45, 70, 100, 140, 190, 250, 320]
     }
   ],
   jewelry: [
     {
-      brand: 'Fine Silver Jewels',
+      brand: 'Scaled Fine Silver Jewelry Brand',
       category: 'jewelry',
       result: 'Scaled conversions and revenue using WhatsApp Query Ads setup and organic reels reach.',
       insights: 'WhatsApp query ads setup boosted the funnel and conversions. Added organic reels for reach as an additional channel for growth, boosting conversions. Achieved significant AOV boost during the Birthday Sale.',
@@ -212,7 +202,7 @@ function CardMetric({ valueStr, isActive }) {
 const cardThemes = {
   '2.39× to 7.98× ROAS — in Three Weeks': {
     number: '1.0',
-    year: '2025',
+    year: '2026',
     duration: '30 DAYS',
     bgClass: 'bg-white text-black border-2 border-black',
     tagColors: [
@@ -221,10 +211,10 @@ const cardThemes = {
       'bg-black/[0.04] text-black border border-black/10'
     ]
   },
-  'Kalki Vastra': {
+  'From ₹10.8L to ₹36.4L/Month in 120 Days': {
     number: '2.0',
-    year: '2024',
-    duration: '15 DAYS',
+    year: '2026',
+    duration: '120 DAYS',
     bgClass: 'bg-white text-black border-2 border-black',
     tagColors: [
       'bg-black/[0.04] text-black border border-black/10',
@@ -232,20 +222,9 @@ const cardThemes = {
       'bg-black/[0.04] text-black border border-black/10'
     ]
   },
-  'Indibelle.in': {
-    number: '3.0',
-    year: '2025',
-    duration: '45 DAYS',
-    bgClass: 'bg-white text-black border-2 border-black',
-    tagColors: [
-      'bg-black/[0.04] text-black border border-black/10',
-      'bg-black/[0.04] text-black border border-black/10',
-      'bg-black/[0.04] text-black border border-black/10'
-    ]
-  },
-  'Fine Silver Jewels': {
+  'Scaled Fine Silver Jewelry Brand': {
     number: '1.0',
-    year: '2024',
+    year: '2026',
     duration: '15 DAYS',
     bgClass: 'bg-white text-black border-2 border-black',
     tagColors: [
@@ -254,10 +233,10 @@ const cardThemes = {
       'bg-black/[0.04] text-black border border-black/10'
     ]
   },
-  'Luxury Clothing Brand': {
-    number: '4.0',
-    year: '2025',
-    duration: '30 DAYS',
+  'Luxury Brand: ₹7.4L Revenue (+494%)': {
+    number: '3.0',
+    year: '2026',
+    duration: '28 DAYS',
     bgClass: 'bg-white text-black border-2 border-black',
     tagColors: [
       'bg-black/[0.04] text-black border border-black/10',
@@ -1244,21 +1223,15 @@ export default function PortfolioWebsite() {
 
                           {/* CARD CONTENT RIGHT: Mini Visual Mockup based on Theme */}
 
-                          {study.brand === 'Kalki Vastra' && (
-                            <div className="hidden md:flex items-center gap-2 z-10 shrink-0 select-none opacity-80 scale-110 pr-4 card-data-item">
-                              <div className="w-6 h-6 border-2 border-black rounded-full"></div>
-                              <div className="w-8 h-8 border-2 border-black/40 rotate-45"></div>
-                              <div className="w-4 h-4 bg-black rounded-none"></div>
+                          {study.brand === 'From ₹10.8L to ₹36.4L/Month in 120 Days' && (
+                            <div className="hidden md:flex flex-col items-center p-4 bg-white border border-black rounded-xl shadow-sm w-36 text-center z-10 shrink-0 card-data-item">
+                              <span className="text-[8px] font-bold text-gray-500 font-mono tracking-widest uppercase">REVENUE GROWTH</span>
+                              <span className="text-xl font-black mt-1 text-[#0ca82b] font-mono">+236%</span>
+                              <div className="mt-2 text-[9px] font-bold px-3 py-1 bg-black text-white rounded font-mono uppercase tracking-wider">SCALING</div>
                             </div>
                           )}
 
-                          {study.brand === 'Indibelle.in' && (
-                            <div className="hidden md:block w-36 h-24 rounded-lg overflow-hidden border border-black/20 shadow-md grayscale hover:grayscale-0 transition-all duration-500 z-10 shrink-0 card-data-item">
-                              <img src={study.image} alt={study.brand} className="w-full h-full object-cover" />
-                            </div>
-                          )}
-
-                          {study.brand === 'Fine Silver Jewels' && (
+                          {study.brand === 'Scaled Fine Silver Jewelry Brand' && (
                             <div className="hidden md:flex items-center gap-2 z-10 shrink-0 select-none opacity-80 scale-110 pr-4 card-data-item">
                               <div className="w-6 h-6 border-2 border-black rounded-full"></div>
                               <div className="w-4 h-4 bg-black rounded-full"></div>
@@ -1266,11 +1239,11 @@ export default function PortfolioWebsite() {
                             </div>
                           )}
 
-                          {study.brand === 'Luxury Clothing Brand' && (
+                          {study.brand === 'Luxury Brand: ₹7.4L Revenue (+494%)' && (
                             <div className="hidden md:flex flex-col items-center p-4 bg-white border border-black rounded-xl shadow-sm w-36 text-center z-10 shrink-0 card-data-item">
                               <span className="text-[8px] font-bold text-gray-500 font-mono tracking-widest uppercase">PREMIUM SCALE</span>
-                              <span className="text-xl font-black mt-1 text-[#c40c0c] font-mono">6X+ ROAS</span>
-                              <div className="mt-2 text-[9px] font-bold px-3 py-1 bg-black text-white rounded font-mono uppercase tracking-wider">SCALING</div>
+                              <span className="text-xl font-black mt-1 text-[#0ca82b] font-mono">+494%</span>
+                              <div className="mt-2 text-[9px] font-bold px-3 py-1 bg-black text-white rounded font-mono uppercase tracking-wider">INTERNATIONAL</div>
                             </div>
                           )}
 
@@ -1453,15 +1426,15 @@ export default function PortfolioWebsite() {
                   <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.04em] mb-4 font-mono">{selectedProject.brand}</h2>
 
                   <div className="flex flex-wrap gap-2">
-                    {selectedProject.services.map((srv, index) => (
-                      <span key={index} className="px-3 py-1 rounded-none border border-white/10 bg-white/[0.03] text-gray-300 text-xs font-light font-mono">
+                    {selectedProject.services.map((srv, idx) => (
+                      <span key={idx} className="px-3 py-1 rounded-none border border-white/10 bg-white/[0.03] text-gray-300 text-xs font-light font-mono">
                         {srv}
                       </span>
                     ))}
                   </div>
                 </div>
 
-                 {/* Visuals / Charts / Screenshots */}
+                {/* Visuals / Charts / Screenshots */}
                 {selectedProject.brand === '2.39× to 7.98× ROAS — in Three Weeks' ? (
                   <div>
                     {/* Side-by-side Shopify Dashboards */}
@@ -1496,9 +1469,190 @@ export default function PortfolioWebsite() {
                         </div>
                       </div>
                     </div>
-
-
                   </div>
+                ) : selectedProject.brand === 'From ₹10.8L to ₹36.4L/Month in 120 Days' ? (
+                  <div>
+                    {/* Side-by-side Shopify Dashboards */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                      {/* Before Card */}
+                      <div className="border border-white/10 bg-[#151715] rounded-xl overflow-hidden shadow-lg">
+                        <div className="bg-[#0b0c0b] px-4 py-3 flex justify-between items-center border-b border-white/10">
+                          <span className="text-[10px] text-amber-500 font-mono tracking-widest font-black uppercase">JANUARY 2026 • FULL MONTH (31 DAYS)</span>
+                          <span className="text-[9px] text-amber-500 font-mono font-bold px-2 py-0.5 border border-amber-500/30 rounded uppercase bg-amber-500/5">BEFORE</span>
+                        </div>
+                        <div className="p-2 bg-[#121412]">
+                          <img src="/shopify_jan_2026_card2.png" alt="Shopify Jan 2026 (Before)" className="w-full h-auto object-contain rounded-lg" />
+                        </div>
+                        <div className="px-4 py-2 bg-black/30 text-[10px] text-gray-400 font-mono border-t border-white/5 flex justify-between">
+                          <span>Total Sales: ₹10.83L</span>
+                          <span>Purchases: 680 | CVR: 1.86%</span>
+                        </div>
+                      </div>
+
+                      {/* After Card */}
+                      <div className="border border-white/10 bg-[#151715] rounded-xl overflow-hidden shadow-lg">
+                        <div className="bg-[#0b0c0b] px-4 py-3 flex justify-between items-center border-b border-white/10">
+                          <span className="text-[10px] text-emerald-400 font-mono tracking-widest font-black uppercase">MAY 2026 • FULL MONTH (31 DAYS)</span>
+                          <span className="text-[9px] text-emerald-400 font-mono font-bold px-2 py-0.5 border border-emerald-400/30 rounded uppercase bg-emerald-400/5">AFTER</span>
+                        </div>
+                        <div className="p-2 bg-[#121412]">
+                          <img src="/shopify_may_2026_card2.png" alt="Shopify May 2026 (After)" className="w-full h-auto object-contain rounded-lg" />
+                        </div>
+                        <div className="px-4 py-2 bg-black/30 text-[10px] text-gray-400 font-mono border-t border-white/5 flex justify-between">
+                          <span>Total Sales: ₹36.43L</span>
+                          <span className="text-emerald-400 font-bold">Purchases: 2,137 | CVR: 2.40% (+29%)</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Funnel Constraints vs Acquisition Metrics */}
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
+                      <div className="p-6 bg-emerald-950/20 border border-emerald-500/20 rounded-xl">
+                        <h5 className="text-emerald-400 font-bold uppercase tracking-wider mb-3">✓ Healthy Acquisition Metrics</h5>
+                        <ul className="list-disc list-inside space-y-1.5 text-gray-300">
+                          <li>Stable CAC</li>
+                          <li>Efficient CPMs</li>
+                          <li>Consistent ROAS</li>
+                          <li>Strong Reach Growth</li>
+                        </ul>
+                      </div>
+                      <div className="p-6 bg-pink-950/20 border border-pink-500/20 rounded-xl">
+                        <h5 className="text-pink-400 font-bold uppercase tracking-wider mb-3">⚠ Hidden Growth Constraints</h5>
+                        <ul className="list-disc list-inside space-y-1.5 text-gray-300">
+                          <li>Website friction</li>
+                          <li>Checkout abandonment</li>
+                          <li>Product dependency</li>
+                          <li>Weak retention systems</li>
+                          <li>Untapped high-intent traffic</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* What We Changed */}
+                    <div className="mt-8 font-mono">
+                      <h4 className="text-lg font-medium text-white mb-4">What We Changed</h4>
+                      <ul className="space-y-3 bg-white/[0.02] border border-white/10 p-6 rounded-xl text-xs text-gray-300">
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span><strong className="text-white">Bestseller-Led Scaling:</strong> Budgets focused on proven winners.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span><strong className="text-white">Website CRO:</strong> Speed, navigation, and purchase flow optimized.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span><strong className="text-white">AI Checkout Recovery:</strong> Abandoned checkout calling implemented.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span><strong className="text-white">Retention Flows:</strong> Remarketing journeys built around hero products.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span><strong className="text-white">Higher AOV Collections:</strong> Collections above ₹2,000 introduced.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span><strong className="text-white">Google Demand Capture:</strong> High-intent product viewers retargeted via Google.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+
+
+                    {/* Key Lesson & projected daily run rate */}
+                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-center">
+                      <div className="p-6 bg-white/[0.02] border border-white/10 rounded-xl">
+                        <span className="text-2xl font-black text-white block">₹1.5L+</span>
+                        <span className="text-[10px] text-gray-400 uppercase tracking-wider mt-1 block">Current Daily Revenue</span>
+                      </div>
+                      <div className="p-6 bg-white/[0.02] border border-white/10 rounded-xl">
+                        <span className="text-2xl font-black text-white block">₹1.17L/day</span>
+                        <span className="text-[10px] text-gray-400 uppercase tracking-wider mt-1 block">Daily Revenue Run Rate</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : selectedProject.brand === 'Luxury Brand: ₹7.4L Revenue (+494%)' ? (
+                  <div>
+                    {/* Shopify Performance Dashboard */}
+                    <div className="mb-6 border border-white/10 bg-[#151715] rounded-xl overflow-hidden shadow-lg">
+                      <div className="bg-[#0b0c0b] px-4 py-3 flex justify-between items-center border-b border-white/10">
+                        <span className="text-[10px] text-emerald-400 font-mono tracking-widest font-black uppercase">FEBRUARY 2026 • PERFORMANCE DASHBOARD</span>
+                        <span className="text-[9px] text-emerald-400 font-mono font-bold px-2 py-0.5 border border-emerald-400/30 rounded uppercase bg-emerald-400/5">SHOPIFY</span>
+                      </div>
+                      <div className="p-2 bg-[#121412]">
+                        <img src="/shopify_luxury_dashboard.png" alt="Shopify Luxury Performance" className="w-full h-auto object-contain rounded-lg" />
+                      </div>
+                    </div>
+
+                    {/* Target Markets vs Strategy Shift */}
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 font-mono text-xs">
+                      <div className="p-6 bg-emerald-950/20 border border-emerald-500/20 rounded-xl">
+                        <h5 className="text-emerald-400 font-bold uppercase tracking-wider mb-3">🎯 Target Markets</h5>
+                        <ul className="list-disc list-inside space-y-1.5 text-gray-300">
+                          <li>United States</li>
+                          <li>United Kingdom</li>
+                          <li>Australia</li>
+                          <li>Canada</li>
+                          <li>UAE</li>
+                        </ul>
+                        <div className="mt-4 text-[10px] text-emerald-400/90 font-sans italic">
+                          👉 Focus: High purchasing power audience for premium ethnic wear
+                        </div>
+                      </div>
+                      <div className="p-6 bg-white/[0.02] border border-white/10 rounded-xl">
+                        <h5 className="text-white font-bold uppercase tracking-wider mb-3">🔄 Strategy Shift</h5>
+                        <p className="text-gray-300 leading-relaxed mb-3">
+                          Initial campaigns focused on direct website purchases resulted in low conversion due to the high consideration nature of the product.
+                        </p>
+                        <p className="text-gray-300 leading-relaxed">
+                          The acquisition strategy was restructured to prioritize high-intent user engagement, enabling better qualification and conversion of premium buyers.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Key Insights */}
+                    <div className="mt-8 font-mono">
+                      <h4 className="text-lg font-medium text-white mb-4">Key Insights</h4>
+                      <ul className="space-y-3 bg-white/[0.02] border border-white/10 p-6 rounded-xl text-xs text-gray-300">
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span>Scaled revenue to ₹7.4L with 494% growth in a high-value ecommerce setup.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span>Operated in a high-ticket category with ₹45K average order value, driving significant revenue despite low purchase volume.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span>Strong mid-funnel intent with 2.44% add to cart and 1.27% checkout rate, indicating qualified traffic.</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <span className="text-emerald-400 font-bold mt-0.5">→</span>
+                          <span>Generated high-value purchases contributing to ₹7.4L revenue.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    {/* Performance Highlights boxes */}
+                    <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-center mb-6">
+                      <div className="p-4 bg-white/[0.02] border border-white/10 rounded-xl">
+                        <span className="text-xl font-black text-white block">₹7.49L</span>
+                        <span className="text-[9px] text-gray-400 uppercase tracking-wider mt-1 block">Total Revenue</span>
+                      </div>
+                      <div className="p-4 bg-white/[0.02] border border-white/10 rounded-xl">
+                        <span className="text-xl font-black text-white block">₹45,812</span>
+                        <span className="text-[9px] text-gray-400 uppercase tracking-wider mt-1 block">Average Order Value</span>
+                      </div>
+                      <div className="p-4 bg-white/[0.02] border border-white/10 rounded-xl">
+                        <span className="text-xl font-black text-white block">26.6%</span>
+                        <span className="text-[9px] text-gray-400 uppercase tracking-wider mt-1 block">Returning Customers</span>
+                      </div>
+                    </div>
+                  </div>
+                ) : selectedProject.brand === 'Scaled Fine Silver Jewelry Brand' ? (
+                  null
                 ) : (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                     <ShopifyDashboardChart data={selectedProject.shopifyData} />
