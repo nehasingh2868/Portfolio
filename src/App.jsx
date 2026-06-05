@@ -525,10 +525,10 @@ export default function PortfolioWebsite() {
         console.log('Submitted successfully (Simulated):', formData)
       }
 
-      // Draft/Send email with inputs to nikkxo1999@gmail.com
+      // Draft/Send email with inputs to ns286869@gmail.com
       const subject = encodeURIComponent(`New Inquiry from ${formData.name}`);
       const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`);
-      window.location.href = `mailto:nikkxo1999@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:ns286869@gmail.com?subject=${subject}&body=${body}`;
 
       setSubmitSuccess(true)
       setFormData({ name: '', email: '', phone: '', message: '' })
@@ -820,7 +820,7 @@ export default function PortfolioWebsite() {
           <nav className="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-black/55">
             <a href="#about-section" className="hover:text-black transition-colors">About</a>
             <a href="#services-section" className="hover:text-black transition-colors">Services</a>
-            <a href="#projects-section" className="hover:text-black transition-colors">Contact</a>
+            <a href="#projects-section" className="hover:text-black transition-colors">Proofs</a>
           </nav>
 
           {/* Right Side: HIRE ME Button (Always visible, triggers download) */}
@@ -863,7 +863,7 @@ export default function PortfolioWebsite() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="py-2 text-black/60 hover:text-black hover:bg-gray-50 transition-colors font-sans"
                 >
-                  Contact
+                  Proofs
                 </a>
                 <a
                   href="/NehaSinghupdatedresume.pdf"
@@ -1267,7 +1267,7 @@ export default function PortfolioWebsite() {
           </div>
         </section>
 
-        {/* SECTION 6: Growth Services with vertical text stack on left */}
+        {/* SECTION 6: Key Skills with vertical text stack on left */}
         <section id="services-section" className="w-full bg-[#121212] text-white py-24 px-6 md:px-16 border-b border-white/5">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -1277,11 +1277,11 @@ export default function PortfolioWebsite() {
             className="w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start"
           >
 
-            {/* Left side: Growth Services, Paragraph and Ads, Strategy, Scale, Revenue bold vertical list */}
+            {/* Left side: Key Skills, Paragraph and Ads, Strategy, Scale, Revenue bold vertical list */}
             <div className="lg:col-span-5 space-y-6">
               <p className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">EXPERTISE</p>
               <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white uppercase font-mono">
-                Growth Services
+                Key Skills
               </h2>
               <p className="text-xs text-gray-400 leading-relaxed font-sans max-w-sm">
                 Implementing technical setup, analytical dashboards, creative strategies, and multi-channel marketing campaigns.
@@ -1338,7 +1338,7 @@ export default function PortfolioWebsite() {
                 </button>
                 <div className="flex items-center gap-3 mt-1.5">
                   <a
-                    href="mailto:nikkxo1999@gmail.com"
+                    href="mailto:ns286869@gmail.com"
                     className="w-10 h-10 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
                     title="Gmail"
                   >
@@ -1384,7 +1384,7 @@ export default function PortfolioWebsite() {
                   Hire Me
                 </a>
                 <a href="https://www.linkedin.com/in/neha-singh-/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">LinkedIn</a>
-                <a href="mailto:nikkxo1999@gmail.com" className="hover:text-black transition-colors">Email</a>
+                <a href="mailto:ns286869@gmail.com" className="hover:text-black transition-colors">Email</a>
               </div>
             </div>
 
