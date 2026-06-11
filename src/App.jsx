@@ -536,7 +536,7 @@ export default function PortfolioWebsite() {
       setFormData({ name: '', email: '', phone: '', message: '' })
     } catch (err) {
       console.error(err)
-      alert('Submission failed. Please try again.')
+      alert('Submission failed: ' + err.message)
     } finally {
       setIsSubmitting(false)
     }
