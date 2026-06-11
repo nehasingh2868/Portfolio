@@ -368,6 +368,7 @@ export default function PortfolioWebsite() {
   const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [activeCategory, setActiveCategory] = useState('clothing')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeScreenshot, setActiveScreenshot] = useState(null)
 
   const sectionRef = useRef(null)
   const sliderContainerRef = useRef(null)
@@ -1447,7 +1448,12 @@ export default function PortfolioWebsite() {
                           <span className="text-[9px] text-amber-500 font-mono font-bold px-2 py-0.5 border border-amber-500/30 rounded uppercase bg-amber-500/5">BEFORE</span>
                         </div>
                         <div className="p-2 bg-[#121412]">
-                          <img src="/shopify_april_2026.png" alt="Shopify April 2026 (Before)" className="w-full h-auto object-contain rounded-lg" />
+                          <img
+                            src="/shopify_april_2026.png"
+                            alt="Shopify April 2026 (Before)"
+                            className="w-full h-auto object-contain rounded-lg transition-all duration-300 hover:scale-[1.02] hover:brightness-110 cursor-pointer"
+                            onClick={() => setActiveScreenshot({ src: '/shopify_april_2026.png', alt: 'Shopify April 2026 (Before)' })}
+                          />
                         </div>
                         <div className="px-4 py-2 bg-black/30 text-[10px] text-gray-400 font-mono border-t border-white/5 flex justify-between">
                           <span>Gross: ₹6.30L | Net: ₹4.33L</span>
@@ -1462,7 +1468,12 @@ export default function PortfolioWebsite() {
                           <span className="text-[9px] text-emerald-400 font-mono font-bold px-2 py-0.5 border border-emerald-400/30 rounded uppercase bg-emerald-400/5">AFTER</span>
                         </div>
                         <div className="p-2 bg-[#121412]">
-                          <img src="/shopify_may_2026.png" alt="Shopify May 2026 (After)" className="w-full h-auto object-contain rounded-lg" />
+                          <img
+                            src="/shopify_may_2026.png"
+                            alt="Shopify May 2026 (After)"
+                            className="w-full h-auto object-contain rounded-lg transition-all duration-300 hover:scale-[1.02] hover:brightness-110 cursor-pointer"
+                            onClick={() => setActiveScreenshot({ src: '/shopify_may_2026.png', alt: 'Shopify May 2026 (After)' })}
+                          />
                         </div>
                         <div className="px-4 py-2 bg-black/30 text-[10px] text-gray-400 font-mono border-t border-white/5 flex justify-between">
                           <span>Sales: ₹13.69L | Conv: 1.2%</span>
@@ -1482,7 +1493,12 @@ export default function PortfolioWebsite() {
                           <span className="text-[9px] text-amber-500 font-mono font-bold px-2 py-0.5 border border-amber-500/30 rounded uppercase bg-amber-500/5">BEFORE</span>
                         </div>
                         <div className="p-2 bg-[#121412]">
-                          <img src="/shopify_jan_2026_card2.png" alt="Shopify Jan 2026 (Before)" className="w-full h-auto object-contain rounded-lg" />
+                          <img
+                            src="/shopify_jan_2026_card2.png"
+                            alt="Shopify Jan 2026 (Before)"
+                            className="w-full h-auto object-contain rounded-lg transition-all duration-300 hover:scale-[1.02] hover:brightness-110 cursor-pointer"
+                            onClick={() => setActiveScreenshot({ src: '/shopify_jan_2026_card2.png', alt: 'Shopify Jan 2026 (Before)' })}
+                          />
                         </div>
                         <div className="px-4 py-2 bg-black/30 text-[10px] text-gray-400 font-mono border-t border-white/5 flex justify-between">
                           <span>Total Sales: ₹10.83L</span>
@@ -1497,7 +1513,12 @@ export default function PortfolioWebsite() {
                           <span className="text-[9px] text-emerald-400 font-mono font-bold px-2 py-0.5 border border-emerald-400/30 rounded uppercase bg-emerald-400/5">AFTER</span>
                         </div>
                         <div className="p-2 bg-[#121412]">
-                          <img src="/shopify_may_2026_card2.png" alt="Shopify May 2026 (After)" className="w-full h-auto object-contain rounded-lg" />
+                          <img
+                            src="/shopify_may_2026_card2.png"
+                            alt="Shopify May 2026 (After)"
+                            className="w-full h-auto object-contain rounded-lg transition-all duration-300 hover:scale-[1.02] hover:brightness-110 cursor-pointer"
+                            onClick={() => setActiveScreenshot({ src: '/shopify_may_2026_card2.png', alt: 'Shopify May 2026 (After)' })}
+                          />
                         </div>
                         <div className="px-4 py-2 bg-black/30 text-[10px] text-gray-400 font-mono border-t border-white/5 flex justify-between">
                           <span>Total Sales: ₹36.43L</span>
@@ -1583,7 +1604,12 @@ export default function PortfolioWebsite() {
                         <span className="text-[9px] text-emerald-400 font-mono font-bold px-2 py-0.5 border border-emerald-400/30 rounded uppercase bg-emerald-400/5">SHOPIFY</span>
                       </div>
                       <div className="p-2 bg-[#121412]">
-                        <img src="/shopify_luxury_dashboard.png" alt="Shopify Luxury Performance" className="w-full h-auto object-contain rounded-lg" />
+                        <img
+                          src="/shopify_luxury_dashboard.png"
+                          alt="Shopify Luxury Performance"
+                          className="w-full h-auto object-contain rounded-lg transition-all duration-300 hover:scale-[1.02] hover:brightness-110 cursor-pointer"
+                          onClick={() => setActiveScreenshot({ src: '/shopify_luxury_dashboard.png', alt: 'Shopify Luxury Performance' })}
+                        />
                       </div>
                     </div>
 
@@ -1810,6 +1836,50 @@ export default function PortfolioWebsite() {
               >
                 Done
               </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Lightbox / Screenshot zoom modal (AnimatePresence) */}
+      <AnimatePresence>
+        {activeScreenshot && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[150] flex flex-col items-center justify-center bg-black/90 backdrop-blur-md p-4"
+            onClick={() => setActiveScreenshot(null)}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setActiveScreenshot(null)}
+              className="absolute top-6 right-6 w-11 h-11 rounded-none bg-white/10 hover:bg-gray-800 text-white hover:text-white transition-all duration-300 z-10 flex items-center justify-center text-lg font-light cursor-pointer border-none outline-none z-[160]"
+              aria-label="Close zoomed view"
+            >
+              ✕
+            </button>
+
+            {/* Container for Image & Details */}
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+              className="relative max-w-[90vw] max-h-[80vh] flex flex-col items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={activeScreenshot.src}
+                alt={activeScreenshot.alt}
+                className="w-auto h-auto max-w-full max-h-[75vh] object-contain rounded-lg border border-white/10 shadow-2xl"
+              />
+              
+              {activeScreenshot.alt && (
+                <p className="mt-4 text-xs font-mono text-gray-400 uppercase tracking-widest bg-black/40 px-3 py-1.5 rounded-md border border-white/5">
+                  {activeScreenshot.alt}
+                </p>
+              )}
             </motion.div>
           </motion.div>
         )}
