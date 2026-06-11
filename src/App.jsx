@@ -365,6 +365,7 @@ function MetaAdsDashboardChart({ data }) {
 export default function PortfolioWebsite() {
   const [selectedProject, setSelectedProject] = useState(null)
   const [showEmailForm, setShowEmailForm] = useState(false)
+  const [showSuccessModal, setShowSuccessModal] = useState(false)
   const [activeCategory, setActiveCategory] = useState('clothing')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -507,32 +508,32 @@ export default function PortfolioWebsite() {
     }
     setIsSubmitting(true)
     try {
-      const scriptURL = ''
-      const payload = new URLSearchParams()
-      payload.append('name', formData.name)
-      payload.append('email', formData.email)
-      payload.append('phone', formData.phone)
-      payload.append('message', formData.message)
-
-      if (scriptURL) {
-        await fetch(scriptURL, {
-          method: 'POST',
-          body: payload,
-          mode: 'no-cors'
+      const response = await fetch("https://formsubmit.co/ajax/ns286869@gmail.com", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
         })
-      } else {
-        await new Promise(resolve => setTimeout(resolve, 800))
-        console.log('Submitted successfully (Simulated):', formData)
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send email.')
       }
 
-      // Draft/Send email with inputs to ns286869@gmail.com
-      const subject = encodeURIComponent(`New Inquiry from ${formData.name}`);
-      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`);
-      window.location.href = `mailto:ns286869@gmail.com?subject=${subject}&body=${body}`;
+      const data = await response.json()
+      if (data.success !== "true" && data.success !== true) {
+        throw new Error(data.message || 'Failed to send email.')
+      }
 
-      setSubmitSuccess(true)
+      setShowEmailForm(false)
+      setShowSuccessModal(true)
       setFormData({ name: '', email: '', phone: '', message: '' })
-      setTimeout(() => setSubmitSuccess(false), 5000)
     } catch (err) {
       console.error(err)
       alert('Submission failed. Please try again.')
@@ -819,7 +820,7 @@ export default function PortfolioWebsite() {
           {/* Center: Nav links */}
           <nav className="hidden md:flex items-center gap-8 text-[11px] font-bold uppercase tracking-widest text-black/55">
             <a href="#about-section" className="hover:text-black transition-colors">About</a>
-            <a href="#services-section" className="hover:text-black transition-colors">Services</a>
+            <a href="#services-section" className="hover:text-black transition-colors">Key Skills</a>
             <a href="#projects-section" className="hover:text-black transition-colors">Proofs</a>
           </nav>
 
@@ -856,7 +857,7 @@ export default function PortfolioWebsite() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="py-2 text-black/60 hover:text-black hover:bg-gray-50 transition-colors font-sans"
                 >
-                  Services
+                  Key Skills
                 </a>
                 <a
                   href="#projects-section"
@@ -1769,6 +1770,46 @@ export default function PortfolioWebsite() {
                   </button>
                 </form>
               )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Success Confirmation Modal */}
+      <AnimatePresence>
+        {showSuccessModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[140] flex items-center justify-center bg-black/80 backdrop-blur-xl p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 220 }}
+              className="max-w-md w-full bg-[#111311] border border-white/10 rounded-2xl p-8 md:p-10 relative shadow-2xl text-center text-white font-sans"
+            >
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="absolute top-4 right-4 w-8 h-8 rounded-none bg-white/10 hover:bg-gray-700 hover:text-white transition-all duration-300 flex items-center justify-center text-sm font-light cursor-pointer border-none outline-none"
+              >
+                ✕
+              </button>
+              <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-full flex items-center justify-center text-3xl mx-auto mb-6">
+                ✓
+              </div>
+              <h3 className="text-2xl font-bold text-white font-mono mb-2">Message Sent!</h3>
+              <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+                Thank you for your message. It has been sent directly to Neha's email. She will get back to you shortly.
+              </p>
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="w-full py-3 bg-white text-black font-semibold hover:bg-gray-200 transition-all duration-300 cursor-pointer border-none outline-none font-mono text-sm rounded-lg"
+              >
+                Done
+              </button>
             </motion.div>
           </motion.div>
         )}
