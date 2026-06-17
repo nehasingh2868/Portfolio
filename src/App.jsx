@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { trackEvent } from './utils/analytics'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -386,6 +387,10 @@ export default function PortfolioWebsite() {
     if (isTransitioning) return;
     setIsTransitioning(true);
 
+    if (newCategory !== activeCategory) {
+      trackEvent('case_study_change_category', { category: newCategory });
+    }
+
     const cards = cardsRef.current.filter(Boolean);
 
     // Stop float animation
@@ -508,6 +513,7 @@ export default function PortfolioWebsite() {
       return
     }
     setIsSubmitting(true)
+    trackEvent('contact_form_submit_attempt')
     try {
       const response = await fetch("https://formsubmit.co/ajax/ns286869@gmail.com", {
         method: "POST",
@@ -535,13 +541,30 @@ export default function PortfolioWebsite() {
       setShowEmailForm(false)
       setShowSuccessModal(true)
       setFormData({ name: '', email: '', phone: '', message: '' })
+      trackEvent('contact_form_submit_success')
     } catch (err) {
       console.error(err)
       alert('Submission failed: ' + err.message)
+      trackEvent('contact_form_submit_failure', { error: err.message })
     } finally {
       setIsSubmitting(false)
     }
   }
+
+  useEffect(() => {
+    if (selectedProject) {
+      trackEvent('case_study_view', {
+        brand: selectedProject.brand,
+        category: selectedProject.category
+      })
+    }
+  }, [selectedProject])
+
+  useEffect(() => {
+    if (showEmailForm) {
+      trackEvent('contact_form_open')
+    }
+  }, [showEmailForm])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -830,6 +853,7 @@ export default function PortfolioWebsite() {
             <a
               href="/NehaSingh2026updatedresume.pdf"
               download="NehaSingh2026updatedresume.pdf"
+              onClick={() => trackEvent('resume_download', { location: 'header_desktop' })}
               className="px-4 py-2 rounded-full border border-black text-black hover:bg-black hover:text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 font-sans cursor-pointer bg-transparent text-center inline-block"
             >
               Hire Me
@@ -870,7 +894,10 @@ export default function PortfolioWebsite() {
                 <a
                   href="/NehaSingh2026updatedresume.pdf"
                   download="NehaSingh2026updatedresume.pdf"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    trackEvent('resume_download', { location: 'header_mobile' })
+                  }}
                   className="mt-2 px-5 py-3 rounded-full border border-black text-black hover:bg-black hover:text-white text-xs font-bold uppercase tracking-wider transition-all duration-300 font-sans text-center block"
                 >
                   Download Resume
@@ -1341,6 +1368,7 @@ export default function PortfolioWebsite() {
                 <div className="flex items-center gap-3 mt-1.5">
                   <a
                     href="mailto:ns286869@gmail.com"
+                    onClick={() => trackEvent('social_click', { platform: 'Email', location: 'footer' })}
                     className="w-10 h-10 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
                     title="Gmail"
                   >
@@ -1352,6 +1380,7 @@ export default function PortfolioWebsite() {
                     href="https://www.linkedin.com/in/neha-singh-/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackEvent('social_click', { platform: 'LinkedIn', location: 'footer' })}
                     className="w-10 h-10 border border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors"
                     title="LinkedIn"
                   >
@@ -1381,12 +1410,27 @@ export default function PortfolioWebsite() {
                 <a
                   href="/NehaSingh2026updatedresume.pdf"
                   download="NehaSingh2026updatedresume.pdf"
+                  onClick={() => trackEvent('resume_download', { location: 'footer_links' })}
                   className="hover:text-black transition-colors uppercase font-mono text-[10px] font-bold"
                 >
                   Hire Me
                 </a>
-                <a href="https://www.linkedin.com/in/neha-singh-/" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">LinkedIn</a>
-                <a href="mailto:ns286869@gmail.com" className="hover:text-black transition-colors">Email</a>
+                <a
+                  href="https://www.linkedin.com/in/neha-singh-/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackEvent('social_click', { platform: 'LinkedIn', location: 'footer_bottom' })}
+                  className="hover:text-black transition-colors"
+                >
+                  LinkedIn
+                </a>
+                <a
+                  href="mailto:ns286869@gmail.com"
+                  onClick={() => trackEvent('social_click', { platform: 'Email', location: 'footer_bottom' })}
+                  className="hover:text-black transition-colors"
+                >
+                  Email
+                </a>
               </div>
             </div>
 
@@ -1704,6 +1748,7 @@ export default function PortfolioWebsite() {
                       href={selectedProject.linkedinUrl} 
                       target="_blank" 
                       rel="noopener noreferrer" 
+                      onClick={() => trackEvent('case_study_linkedin_click', { brand: selectedProject.brand, url: selectedProject.linkedinUrl })}
                       className="px-6 py-3 bg-white text-black hover:bg-gray-200 text-xs font-bold uppercase tracking-wider font-mono transition-colors flex items-center gap-2 cursor-pointer"
                     >
                       See Full Case Study ↗
