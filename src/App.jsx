@@ -49,6 +49,18 @@ const stats = [
 const caseStudiesData = {
   clothing: [
     {
+      brand: '143% Higher CVR. 45% More Orders. 41% Revenue Growth.',
+      category: 'clothing',
+      result: 'How Deasha scaled from ₹15.1L to ₹21.4L in 4 months',
+      insights: 'Better order quality + stronger products + festive demand + smarter scaling.',
+      image: '/deasha_hero_cover.png',
+      metrics: ['+143%', '₹21.4L Revenue', '8.11x ROAS'],
+      services: ['CRO Improvements', 'COD Optimization', 'Media Scaling'],
+      linkedinUrl: '',
+      shopifyData: [151, 162, 175, 188, 198, 208, 214],
+      metaData: [50, 75, 105, 135, 165, 195, 220]
+    },
+    {
       brand: '2.39× to 7.98× ROAS — in Three Weeks',
       category: 'clothing',
       result: 'Scaled Indian Ethnic D2C brand with drastic CAC reduction in three weeks',
@@ -201,8 +213,19 @@ function CardMetric({ valueStr, isActive }) {
 }
 
 const cardThemes = {
-  '2.39× to 7.98× ROAS — in Three Weeks': {
+  '143% Higher CVR. 45% More Orders. 41% Revenue Growth.': {
     number: '1.0',
+    year: '2026',
+    duration: '4 MONTHS',
+    bgClass: 'bg-white text-black border-2 border-black',
+    tagColors: [
+      'bg-black/[0.04] text-black border border-black/10',
+      'bg-black/[0.04] text-black border border-black/10',
+      'bg-black/[0.04] text-black border border-black/10'
+    ]
+  },
+  '2.39× to 7.98× ROAS — in Three Weeks': {
+    number: '2.0',
     year: '2026',
     duration: '30 DAYS',
     bgClass: 'bg-white text-black border-2 border-black',
@@ -213,7 +236,7 @@ const cardThemes = {
     ]
   },
   'From ₹10.8L to ₹36.4L/Month in 120 Days': {
-    number: '2.0',
+    number: '3.0',
     year: '2026',
     duration: '120 DAYS',
     bgClass: 'bg-white text-black border-2 border-black',
@@ -235,7 +258,7 @@ const cardThemes = {
     ]
   },
   'Luxury Brand: ₹7.4L Revenue (+494%)': {
-    number: '3.0',
+    number: '4.0',
     year: '2026',
     duration: '28 DAYS',
     bgClass: 'bg-white text-black border-2 border-black',
@@ -1222,10 +1245,14 @@ export default function PortfolioWebsite() {
                           </button>
 
                           {/* CARD CONTENT LEFT: Brand Name, Tagline, and Tags */}
-                          <div className="flex-1 text-left flex flex-col justify-center gap-3 md:gap-5 z-10 [transform:translateZ(20px)]">
-                            <span className="text-[9px] opacity-55 font-mono tracking-[0.25em] uppercase block card-data-item">CASE STUDY</span>
+                          <div className="flex-1 text-left flex flex-col justify-center gap-2 md:gap-3.5 z-10 [transform:translateZ(20px)]">
+                            <span className="text-[9px] opacity-55 font-mono tracking-[0.25em] uppercase block card-data-item pt-2 md:pt-4">CASE STUDY</span>
 
-                            <h3 className="text-xl sm:text-2xl md:text-4xl font-black uppercase tracking-tighter leading-none font-mono card-data-item">
+                            <h3 className={`font-black uppercase tracking-tighter leading-snug font-mono card-data-item ${
+                              study.brand.length > 40
+                                ? 'text-base sm:text-lg md:text-2xl lg:text-3xl'
+                                : 'text-xl sm:text-2xl md:text-4xl'
+                            }`}>
                               {study.brand}
                             </h3>
 
@@ -1251,6 +1278,14 @@ export default function PortfolioWebsite() {
                           </div>
 
                           {/* CARD CONTENT RIGHT: Mini Visual Mockup based on Theme */}
+
+                          {study.brand.includes('143% Higher') && (
+                            <div className="hidden md:flex flex-col items-center p-4 bg-white border border-black rounded-xl shadow-sm w-36 text-center z-10 shrink-0 card-data-item">
+                              <span className="text-[8px] font-bold text-gray-500 font-mono tracking-widest uppercase">CVR</span>
+                              <span className="text-xl font-black mt-1 text-[#0ca82b] font-mono">+143%</span>
+                              <div className="mt-2 text-[9px] font-bold px-3 py-1 bg-black text-white rounded font-mono uppercase tracking-wider">8.11X ROAS</div>
+                            </div>
+                          )}
 
                           {study.brand === 'From ₹10.8L to ₹36.4L/Month in 120 Days' && (
                             <div className="hidden md:flex flex-col items-center p-4 bg-white border border-black rounded-xl shadow-sm w-36 text-center z-10 shrink-0 card-data-item">
@@ -1448,6 +1483,15 @@ export default function PortfolioWebsite() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[120] flex items-center justify-center bg-black/85 backdrop-blur-xl p-4 md:p-6"
           >
+            {/* Fixed Close Button that stays visible on screen even while scrolling */}
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="fixed top-6 right-6 md:top-8 md:right-8 w-11 h-11 rounded-full bg-black/80 hover:bg-white text-white hover:text-black border border-white/20 transition-all duration-300 z-[160] flex items-center justify-center text-lg font-light cursor-pointer outline-none shadow-2xl"
+              aria-label="Close modal"
+            >
+              ✕
+            </button>
+
             <motion.div
               initial={{ scale: 0.95, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -1455,12 +1499,6 @@ export default function PortfolioWebsite() {
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
               className="max-w-4xl w-full bg-[#111311] border border-white/10 rounded-none overflow-hidden max-h-[90vh] overflow-y-auto shadow-2xl relative text-white font-sans"
             >
-              <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-6 right-6 w-11 h-11 rounded-none bg-white/10 hover:bg-gray-800 hover:text-white transition-all duration-300 z-10 flex items-center justify-center text-lg font-light cursor-pointer border-none outline-none"
-              >
-                ✕
-              </button>
               <div className="relative h-[200px] md:h-[300px]">
                 <img src={selectedProject.image} alt={selectedProject.brand} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111311] via-transparent to-transparent"></div>
@@ -1481,7 +1519,273 @@ export default function PortfolioWebsite() {
                 </div>
 
                 {/* Visuals / Charts / Screenshots */}
-                {selectedProject.brand === '2.39× to 7.98× ROAS — in Three Weeks' ? (
+                {selectedProject.brand.includes('143% Higher') ? (
+                  <div>
+                    {/* Simple Text Subheadings */}
+                    <div className="mb-8 font-mono">
+                      <span className="text-xs text-emerald-400 font-mono font-bold uppercase tracking-widest block mb-1.5">
+                        143% HIGHER CVR
+                      </span>
+                      <h3 className="text-2xl md:text-3xl font-black text-white leading-tight mb-2">
+                        41% Revenue Growth Without Sacrificing 8x+ ROAS
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-300 font-sans">
+                        How Deasha scaled from ₹15.1L to ₹21.4L in 4 months
+                      </p>
+                    </div>
+
+                    {/* Above section: Third Screenshot & Key Metrics */}
+                    <div className="mb-8">
+                      <h4 className="text-sm font-bold text-gray-400 uppercase font-mono tracking-wider mb-4">
+                        📊 Performance Breakdown & Comparison
+                      </h4>
+                      
+                      {/* Third Screenshot Image (Metrics Table) */}
+                      <div className="border border-white/10 bg-[#151715] rounded-xl overflow-hidden shadow-xl mb-6">
+                        <div className="bg-[#0b0c0b] px-4 py-3 flex justify-between items-center border-b border-white/10">
+                          <span className="text-[10px] text-emerald-400 font-mono tracking-widest font-black uppercase">
+                            MAY VS AUGUST PERFORMANCE METRICS TABLE
+                          </span>
+                          <span className="text-[9px] text-emerald-400 font-mono font-bold px-2 py-0.5 border border-emerald-400/30 rounded uppercase bg-emerald-400/5">
+                            DEASHA AUDIT
+                          </span>
+                        </div>
+                        <div className="p-3 bg-[#0d0e0d] flex justify-center">
+                          <img
+                            src="/deasha_metrics_table.png"
+                            alt="Deasha May vs August Metrics Table"
+                            className="w-full h-auto max-h-[380px] object-contain rounded-lg transition-all duration-300 hover:scale-[1.01] hover:brightness-110 cursor-pointer"
+                            onClick={() => setActiveScreenshot({ src: '/deasha_metrics_table.png', alt: 'Deasha May vs August Metrics Table' })}
+                          />
+                        </div>
+                        <div className="px-4 py-2 bg-black/40 text-[10px] text-gray-400 font-mono border-t border-white/5 text-center">
+                          Click image to view high-resolution metrics table
+                        </div>
+                      </div>
+
+                      {/* Key Metrics Grid */}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 font-mono text-center">
+                        <div className="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                          <span className="text-lg font-black text-emerald-400 block">+143%</span>
+                          <span className="text-[9px] text-gray-400 uppercase tracking-wider mt-0.5 block">CVR (0.8% → 1.94%)</span>
+                        </div>
+                        <div className="p-3 bg-white/[0.03] border border-white/10 rounded-xl">
+                          <span className="text-lg font-black text-white block">+41%</span>
+                          <span className="text-[9px] text-gray-400 uppercase tracking-wider mt-0.5 block">Revenue</span>
+                        </div>
+                        <div className="p-3 bg-white/[0.03] border border-white/10 rounded-xl">
+                          <span className="text-lg font-black text-white block">+45%</span>
+                          <span className="text-[9px] text-gray-400 uppercase tracking-wider mt-0.5 block">Orders</span>
+                        </div>
+                        <div className="p-3 bg-white/[0.03] border border-white/10 rounded-xl">
+                          <span className="text-lg font-black text-emerald-400 block">−40%</span>
+                          <span className="text-[9px] text-gray-400 uppercase tracking-wider mt-0.5 block">CPC (₹12 → ₹7.20)</span>
+                        </div>
+                        <div className="p-3 bg-white/[0.03] border border-white/10 rounded-xl">
+                          <span className="text-lg font-black text-white block">+21%</span>
+                          <span className="text-[9px] text-gray-400 uppercase tracking-wider mt-0.5 block">CTR (3.6% → 4.34%)</span>
+                        </div>
+                        <div className="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl">
+                          <span className="text-lg font-black text-emerald-400 block">8.11x</span>
+                          <span className="text-[9px] text-gray-400 uppercase tracking-wider mt-0.5 block">ROAS</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* SECTION 2 (SHOPIFY MONTHLY REVENUE DASHBOARDS) */}
+                    <div className="mb-8">
+                      <h4 className="text-sm font-bold text-gray-400 uppercase font-mono tracking-wider mb-4">
+                        📈 Shopify Monthly Revenue Dashboards
+                      </h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* May 2026 Screenshot */}
+                        <div className="border border-white/10 bg-[#151715] rounded-xl overflow-hidden shadow-lg">
+                          <div className="bg-[#0b0c0b] px-4 py-3 flex justify-between items-center border-b border-white/10">
+                            <span className="text-[10px] text-amber-400 font-mono tracking-widest font-black uppercase">MAY 1–31, 2026 • BASELINE</span>
+                            <span className="text-[9px] text-amber-400 font-mono font-bold px-2 py-0.5 border border-amber-400/30 rounded uppercase bg-amber-400/5">MAY</span>
+                          </div>
+                          <div className="p-2 bg-[#121412] h-[220px] md:h-[250px] flex items-center justify-center">
+                            <img
+                              src="/deasha_may_2026.png"
+                              alt="Deasha May 2026 Revenue Graph"
+                              className="max-h-full max-w-full object-contain rounded-lg transition-all duration-300 hover:scale-[1.02] hover:brightness-110 cursor-pointer"
+                              onClick={() => setActiveScreenshot({ src: '/deasha_may_2026.png', alt: 'Deasha May 2026 Revenue Graph' })}
+                            />
+                          </div>
+                          <div className="px-4 py-2 bg-black/30 text-[10px] text-gray-400 font-mono border-t border-white/5 flex justify-between">
+                            <span>Gross Sales: ₹15,11,392.80</span>
+                            <span className="text-amber-400 font-bold">+129% MoM</span>
+                          </div>
+                        </div>
+
+                        {/* August 2026 Screenshot */}
+                        <div className="border border-white/10 bg-[#151715] rounded-xl overflow-hidden shadow-lg">
+                          <div className="bg-[#0b0c0b] px-4 py-3 flex justify-between items-center border-b border-white/10">
+                            <span className="text-[10px] text-emerald-400 font-mono tracking-widest font-black uppercase">AUG 1–31, 2026 • SCALED</span>
+                            <span className="text-[9px] text-emerald-400 font-mono font-bold px-2 py-0.5 border border-emerald-400/30 rounded uppercase bg-emerald-400/5">AUGUST</span>
+                          </div>
+                          <div className="p-2 bg-[#121412] h-[220px] md:h-[250px] flex items-center justify-center">
+                            <img
+                              src="/deasha_august_2026.png"
+                              alt="Deasha August 2026 Revenue Graph"
+                              className="max-h-full max-w-full object-contain rounded-lg transition-all duration-300 hover:scale-[1.02] hover:brightness-110 cursor-pointer"
+                              onClick={() => setActiveScreenshot({ src: '/deasha_august_2026.png', alt: 'Deasha August 2026 Revenue Graph' })}
+                            />
+                          </div>
+                          <div className="px-4 py-2 bg-black/30 text-[10px] text-gray-400 font-mono border-t border-white/5 flex justify-between">
+                            <span>Gross Sales: ₹21,37,697.67</span>
+                            <span className="text-emerald-400 font-bold">+41% Scale | 8.11x ROAS</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* SECTION 2.5: GROWTH TIMELINE, WHAT CHANGED & STRATEGY SUMMARY BOX (MOVED DIRECTLY BELOW SHOPIFY DASHBOARDS) */}
+                    <div className="mb-8 font-mono">
+                      {/* Growth Timeline Card */}
+                      <div className="p-6 bg-[#151715] border border-white/10 rounded-xl mb-6 shadow-xl">
+                        <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                          <span>⏱️</span> 4-Month Growth Progression & What Changed
+                        </h4>
+                        
+                        <div className="flex flex-col md:flex-row items-stretch justify-between gap-4 font-mono">
+                          {/* May Baseline Box */}
+                          <div className="flex-1 p-4 bg-amber-500/10 border border-amber-500/30 rounded-lg text-center flex flex-col justify-center">
+                            <span className="text-[10px] text-amber-400 uppercase font-bold tracking-wider mb-1">MAY BASELINE</span>
+                            <span className="text-xl font-black text-white">₹15.1L Revenue</span>
+                            <span className="text-xs text-gray-400 mt-1">0.8% CVR</span>
+                          </div>
+
+                          {/* What Changed Center Pillar */}
+                          <div className="flex-[1.4] p-4 bg-emerald-950/30 border border-emerald-500/30 rounded-lg">
+                            <div className="text-center mb-2">
+                              <span className="text-[10px] text-emerald-400 uppercase font-bold tracking-widest">↓ WHAT CHANGED ↓</span>
+                            </div>
+                            <div className="grid grid-cols-2 gap-x-3 gap-y-1.5 text-[11px] text-gray-200">
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-emerald-400">✓</span> CRO improvements
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-emerald-400">✓</span> Farshi Salwar focus
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-emerald-400">✓</span> COD optimization
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-emerald-400">✓</span> Bestseller scaling
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-emerald-400">✓</span> Partial COD
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-emerald-400">✓</span> UGC content
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-emerald-400">✓</span> Festive collections
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-emerald-400">✓</span> Media scaling
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* August Outcome Box */}
+                          <div className="flex-1 p-4 bg-emerald-500/10 border border-emerald-500/40 rounded-lg text-center flex flex-col justify-center">
+                            <span className="text-[10px] text-emerald-400 uppercase font-bold tracking-wider mb-1">AUGUST SCALED</span>
+                            <span className="text-xl font-black text-emerald-400">₹21.4L Revenue</span>
+                            <span className="text-xs text-emerald-300 font-bold mt-1">1.94% CVR • 714 Orders</span>
+                            <span className="text-[10px] text-emerald-400/80 font-bold">8.11x ROAS</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* The Strategy Summary Box */}
+                      <div className="p-5 bg-gradient-to-r from-emerald-950/40 via-emerald-900/20 to-emerald-950/40 border border-emerald-500/30 rounded-xl mb-6">
+                        <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest block mb-1">
+                          THE STRATEGY
+                        </span>
+                        <p className="text-sm font-bold text-white font-sans leading-relaxed">
+                          Better order quality <span className="text-emerald-400">+</span> stronger products <span className="text-emerald-400">+</span> festive demand <span className="text-emerald-400">+</span> smarter scaling.
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* SECTION 3 (DETAILED GROWTH STRATEGY - MATCHING FONT STYLE OF OTHERS) */}
+                    <div className="mb-8 font-mono">
+                      <div className="p-6 bg-gradient-to-r from-white/[0.04] to-white/[0.01] border border-white/10 rounded-xl mb-6">
+                        <p className="text-xs md:text-sm text-gray-200 leading-relaxed font-sans">
+                          The growth strategy focused on building a stronger foundation before scaling aggressively. We worked across the customer journey, product mix and acquisition strategy to make the account more scalable.
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono mb-6">
+                        <div className="p-5 bg-white/[0.02] border border-white/10 rounded-xl">
+                          <h5 className="text-white font-bold text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                            <span>💻</span> Website & CRO
+                          </h5>
+                          <p className="text-gray-300 font-sans leading-relaxed">
+                            Improved the website experience to reduce friction across the purchase journey and make it easier for customers to discover products, evaluate them and complete their purchase.
+                          </p>
+                        </div>
+
+                        <div className="p-5 bg-white/[0.02] border border-white/10 rounded-xl">
+                          <h5 className="text-white font-bold text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                            <span>🔥</span> Bestseller Led Scaling
+                          </h5>
+                          <p className="text-gray-300 font-sans leading-relaxed">
+                            Identified products with consistent purchase intent, particularly the Farshi Salwar, and increased their visibility across campaigns instead of spreading spend evenly across the catalogue.
+                          </p>
+                        </div>
+
+                        <div className="p-5 bg-white/[0.02] border border-white/10 rounded-xl">
+                          <h5 className="text-white font-bold text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                            <span>✨</span> Festive Collection Strategy
+                          </h5>
+                          <p className="text-gray-300 font-sans leading-relaxed">
+                            Introduced fresh collections around key festive moments to create newness, capture seasonal demand and give acquisition campaigns stronger product stories to communicate.
+                          </p>
+                        </div>
+
+                        <div className="p-5 bg-white/[0.02] border border-white/10 rounded-xl">
+                          <h5 className="text-white font-bold text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                            <span>📦</span> COD & Order Quality Optimisation
+                          </h5>
+                          <p className="text-gray-300 font-sans leading-relaxed">
+                            Refined the COD approach, including the introduction of partial COD, with a focus on improving order quality and reducing the impact of RTOs while continuing to capture COD demand.
+                          </p>
+                        </div>
+
+                        <div className="p-5 bg-white/[0.02] border border-white/10 rounded-xl">
+                          <h5 className="text-white font-bold text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                            <span>🎬</span> UGC & Creative Testing
+                          </h5>
+                          <p className="text-gray-300 font-sans leading-relaxed">
+                            Increased the use of UGC and product focused creatives to make the ads more relatable and strengthen product communication across acquisition campaigns.
+                          </p>
+                        </div>
+
+                        <div className="p-5 bg-white/[0.02] border border-white/10 rounded-xl">
+                          <h5 className="text-white font-bold text-sm uppercase tracking-wide mb-2 flex items-center gap-2">
+                            <span>🚀</span> Channel Expansion & Scaling
+                          </h5>
+                          <p className="text-gray-300 font-sans leading-relaxed">
+                            Expanded beyond the existing Meta focused acquisition strategy by introducing Google Ads, while progressively scaling budgets around campaigns, audiences and products that demonstrated stronger purchase intent.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* OVERALL APPROACH SUMMARY */}
+                      <div className="p-6 bg-emerald-950/30 border border-emerald-500/40 rounded-xl font-mono text-center">
+                        <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-widest block mb-2">
+                          THE OVERALL APPROACH
+                        </span>
+                        <p className="text-xs md:text-sm font-bold text-white leading-relaxed">
+                          Improve the experience <span className="text-emerald-400">→</span> strengthen the product mix <span className="text-emerald-400">→</span> improve order quality <span className="text-emerald-400">→</span> introduce new demand drivers <span className="text-emerald-400">→</span> scale what works.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : selectedProject.brand === '2.39× to 7.98× ROAS — in Three Weeks' ? (
                   <div>
                     {/* Side-by-side Shopify Dashboards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -1731,16 +2035,20 @@ export default function PortfolioWebsite() {
                   </div>
                 )}
 
-                {/* Strategy metrics */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 font-mono">
-                  {selectedProject.metrics.map((metric, index) => (
-                    <div key={index} className="p-4 rounded-none border border-white/10 bg-white/[0.02] text-center shadow-inner">
-                      <h3 className="text-lg font-semibold text-gray-300">{metric}</h3>
+                {/* Strategy metrics & Core Strategy (only for other case studies) */}
+                {!selectedProject.brand.includes('143% Higher') && (
+                  <>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 font-mono">
+                      {selectedProject.metrics.map((metric, index) => (
+                        <div key={index} className="p-4 rounded-none border border-white/10 bg-white/[0.02] text-center shadow-inner">
+                          <h3 className="text-lg font-semibold text-gray-300">{metric}</h3>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-                <h4 className="text-lg font-medium text-white mb-2 font-mono">Core Strategy & Execution</h4>
-                <p className="text-gray-400 leading-7 font-light text-sm font-sans mb-6">{selectedProject.insights}</p>
+                    <h4 className="text-lg font-medium text-white mb-2 font-mono">Core Strategy & Execution</h4>
+                    <p className="text-gray-400 leading-7 font-light text-sm font-sans mb-6">{selectedProject.insights}</p>
+                  </>
+                )}
 
                 {selectedProject.linkedinUrl && (
                   <div className="mt-8 pt-6 border-t border-white/10 flex justify-start">
